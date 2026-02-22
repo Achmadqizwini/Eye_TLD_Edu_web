@@ -41,3 +41,34 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-blue-500 rounded-full;
 }
+
+/* Tambahkan di bagian paling bawah file index.css */
+
+/* Safe area for iPhone notch */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Prevent overscroll on iOS */
+html, body {
+  overscroll-behavior: none;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Fix for flipbook on mobile */
+.stf__wrapper {
+  margin: 0 auto;
+}
