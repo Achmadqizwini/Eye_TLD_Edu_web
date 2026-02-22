@@ -1184,7 +1184,7 @@ export default function FlipBook() {
   }
 
   return (
-    <div className="fixed inset-0 bg-slate-900 flex flex-col overflow-hidden">
+    <div className="flipbook-container bg-slate-900 flex flex-col">
       
       {/* Home Button */}
       <motion.button

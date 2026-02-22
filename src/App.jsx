@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/website" element={<WebsitePage />} />
         <Route path="/flipbook" element={<FlipbookPage />} />
+        <Route path="/website" element={<WebsitePage />} />
       </Routes>
     </Router>
   );
