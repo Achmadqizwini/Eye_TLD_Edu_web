@@ -1,179 +1,142 @@
+// src/pages/LandingPage.jsx
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { Monitor, BookOpen, Eye, Shield, Sparkles } from 'lucide-react';
+import { BookOpen, Globe, ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
-  const navigate = useNavigate();
+  const options = [
+    {
+      id: 'flipbook',
+      title: 'Flipbook Digital',
+      description: 'Pengalaman membaca seperti buku fisik dengan animasi membalik halaman yang interaktif',
+      icon: BookOpen,
+      path: '/flipbook',
+      gradient: 'from-purple-500 to-pink-500',
+      bgGradient: 'from-purple-50 to-pink-50',
+      features: ['Animasi flip halaman', 'Gestur swipe', 'Tampilan buku nyata']
+    },
+    {
+      id: 'website',
+      title: 'Website Interaktif',
+      description: 'Eksplorasi konten dengan scrolling modern, animasi halus, dan fitur interaktif',
+      icon: Globe,
+      path: '/website',
+      gradient: 'from-blue-500 to-cyan-500',
+      bgGradient: 'from-blue-50 to-cyan-50',
+      features: ['Scroll animasi', 'Quiz interaktif', 'Simulator dosis']
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center p-4 relative overflow-hidden">
-      
-      {/* Background Animation */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center p-4 md:p-8">
+      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl w-full">
-        
+      <div className="relative z-10 max-w-6xl w-full">
         {/* Header */}
-        <motion.div 
-          className="text-center mb-12"
+        <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
         >
-          {/* Logo */}
           <motion.div
-            className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6"
-            animate={{ rotate: [0, 5, -5, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/80 text-sm mb-6"
           >
-            <Eye className="w-10 h-10 text-cyan-400" />
+            <Sparkles className="w-4 h-4" />
+            Platform Edukasi Interaktif
           </motion.div>
-
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
-            Edukasi Proteksi{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Radiasi Mata
+          
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            Proteksi Radiasi
+            <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Lensa Mata
             </span>
           </h1>
           
-          <p className="text-blue-200 text-lg max-w-xl mx-auto">
-            Pilih format yang Anda inginkan untuk mempelajari materi proteksi radiasi lensa mata
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            Pilih format pembelajaran yang sesuai dengan preferensi Anda
           </p>
         </motion.div>
 
-        {/* Options */}
-        <div className="grid md:grid-cols-2 gap-6">
-          
-          {/* Option 1: Website */}
-          <motion.button
-            onClick={() => navigate('/website')}
-            className="group relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 text-left overflow-hidden"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.15)' }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
-                <Monitor className="w-8 h-8 text-white" />
-              </div>
-              
-              <h2 className="text-2xl font-bold text-white mb-3">
-                Website Interaktif
-              </h2>
-              
-              <p className="text-blue-200 mb-4">
-                Jelajahi materi dengan animasi interaktif, quiz, dan navigasi modern
-              </p>
-              
-              <ul className="space-y-2">
-                {['Animasi Interaktif', 'Quiz & Evaluasi', 'Navigasi Mudah'].map((item, i) => (
-                  <li key={i} className="flex items-center space-x-2 text-sm text-blue-300">
-                    <Sparkles className="w-4 h-4 text-cyan-400" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="mt-6 flex items-center text-cyan-400 font-semibold">
-                <span>Buka Website</span>
-                <motion.span 
-                  className="ml-2"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1, repeat: Infinity }}
+        {/* Options Grid - FLIPBOOK FIRST (LEFT/TOP), WEBSITE SECOND (RIGHT/BOTTOM) */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          {options.map((option, index) => (
+            <motion.div
+              key={option.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.2, duration: 0.6 }}
+            >
+              <Link to={option.path}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`relative overflow-hidden bg-gradient-to-br ${option.bgGradient} rounded-3xl p-8 md:p-10 cursor-pointer group border border-white/20 shadow-2xl`}
                 >
-                  →
-                </motion.span>
-              </div>
-            </div>
-          </motion.button>
+                  {/* Glow Effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${option.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                  
+                  {/* Icon */}
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${option.gradient} flex items-center justify-center mb-6 shadow-lg`}
+                  >
+                    <option.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  </motion.div>
 
-          {/* Option 2: Flipbook */}
-          <motion.button
-            onClick={() => navigate('/flipbook')}
-            className="group relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 text-left overflow-hidden"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.15)' }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
-                <BookOpen className="w-8 h-8 text-white" />
-              </div>
-              
-              <h2 className="text-2xl font-bold text-white mb-3">
-                Flipbook Digital
-              </h2>
-              
-              <p className="text-blue-200 mb-4">
-                Baca materi seperti buku dengan efek flip halaman yang realistis
-              </p>
-              
-              <ul className="space-y-2">
-                {['Efek Flip Halaman', 'Tampilan Seperti Buku', 'Mudah Dibaca'].map((item, i) => (
-                  <li key={i} className="flex items-center space-x-2 text-sm text-blue-300">
-                    <Sparkles className="w-4 h-4 text-green-400" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="mt-6 flex items-center text-green-400 font-semibold">
-                <span>Buka Flipbook</span>
-                <motion.span 
-                  className="ml-2"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
-              </div>
-            </div>
-          </motion.button>
+                  {/* Content */}
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+                    {option.title}
+                  </h2>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {option.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {option.features.map((feature, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-white/60 rounded-full text-sm text-gray-700"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div className={`inline-flex items-center gap-2 text-transparent bg-gradient-to-r ${option.gradient} bg-clip-text font-semibold`}>
+                    Mulai Eksplorasi
+                    <motion.div
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                    >
+                      <ArrowRight className={`w-5 h-5 text-${option.gradient.split('-')[1]}-500`} />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Footer */}
-        <motion.div 
-          className="text-center mt-12"
+        {/* Footer Note */}
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 1 }}
+          className="text-center text-white/50 text-sm mt-8"
         >
-          <div className="flex items-center justify-center space-x-2 text-blue-300 text-sm">
-            <Shield className="w-4 h-4" />
-            <span>Materi Edukasi Proteksi Radiasi</span>
-          </div>
-        </motion.div>
+          Kedua format berisi materi edukasi yang sama dengan pengalaman berbeda
+        </motion.p>
       </div>
     </div>
   );
