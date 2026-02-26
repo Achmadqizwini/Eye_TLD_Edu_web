@@ -1,4 +1,3 @@
-/* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
 
 @tailwind base;
@@ -29,7 +28,7 @@
   }
 }
 
-/* Custom scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -42,9 +41,7 @@
   @apply bg-blue-500 rounded-full;
 }
 
-/* Tambahkan di bagian paling bawah file index.css */
-
-/* Safe area for iPhone notch */
+/* Safe area untuk iPhone notch - HANYA untuk elemen tertentu */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -53,22 +50,16 @@
   padding-top: env(safe-area-inset-top, 0px);
 }
 
-/* Prevent overscroll on iOS */
-html, body {
-  overscroll-behavior: none;
-  overflow: hidden;
+/* Flipbook page - prevent overscroll HANYA di flipbook */
+.flipbook-container {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
-#root {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
-/* Fix for flipbook on mobile */
-.stf__wrapper {
-  margin: 0 auto;
+/* Fix untuk touch scroll di mobile */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
 }
