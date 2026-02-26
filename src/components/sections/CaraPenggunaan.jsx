@@ -15,81 +15,64 @@ import {
 const steps = [
   {
     id: 1,
-    title: 'Persiapan',
-    description: 'Pastikan TLD dalam kondisi baik sebelum digunakan',
+    title: 'Persiapan Penggunaan TLD Mata',
+    // description: 'Pastikan TLD dalam kondisi baik sebelum digunakan',
     details: [
-      'Periksa kondisi fisik TLD (tidak retak atau rusak)',
-      'Pastikan TLD sudah di-reset/annealing oleh petugas',
-      'Catat nomor identifikasi TLD yang akan digunakan',
-      'Siapkan headband atau frame kacamata untuk pemasangan'
+      'Pastikan TLD mata dalam kondisi bersih dan berfungsi baik',
+      'Periksa identitas TLD mata (nama petugas) agar tidak tertukar',
+      'Ambil TLD mata dari tempat penyimpanan khusus yang telah disediakan',
     ],
-    tips: 'Selalu gunakan TLD yang sudah terdaftar atas nama Anda',
+    // tips: 'Selalu gunakan TLD yang sudah terdaftar atas nama Anda',
     image: '🔍'
   },
   {
     id: 2,
-    title: 'Pemasangan',
-    description: 'Pasang TLD pada posisi yang tepat di area mata',
+    title: 'Cara Pemakaian TLD Mata',
+    // description: 'Pasang TLD pada posisi yang tepat di area mata',
     details: [
-      'Posisikan TLD sedekat mungkin dengan mata (area alis)',
-      'Gunakan headband khusus atau pasang pada frame kacamata',
-      'Pastikan TLD tidak menghalangi pandangan',
-      'Kristal TLD harus menghadap ke arah sumber radiasi'
+      'Pasang TLD mata di kepala atau dahi menyerupai ikat kepala',
+      'Posisikan detektor sedekat mungkin dengan area mataa',
+      'Kencangkan perekat di bagian belakang kepala',
+      'Sesuaikan agar nyaman dan tidak mudah bergeser selama tindakan'
     ],
-    tips: 'TLD sebaiknya dipasang di sisi mata yang lebih dekat dengan sumber radiasi',
+    // tips: 'TLD sebaiknya dipasang di sisi mata yang lebih dekat dengan sumber radiasi',
     image: '👁️'
   },
   {
     id: 3,
-    title: 'Selama Bekerja',
-    description: 'Gunakan TLD secara konsisten selama bekerja',
+    title: 'Pemakaian Selama Tindakan',
+    // description: 'Gunakan TLD secara konsisten selama bekerja',
     details: [
-      'Pakai TLD setiap kali bekerja dengan sumber radiasi',
-      'Jangan melepas TLD selama prosedur berlangsung',
-      'Hindari menyentuh atau menutupi area kristal TLD',
-      'Jauhkan dari sumber panas dan sinar matahari langsung'
+      'Gunakan TLD mata sepanjang prosedur radiologi intervensi',
+      'Pastikan posisi tetap benar selama tindakan berlangsung',
+      'Hindari melepas TLD mata sebelum prosedur selesai',
     ],
-    tips: 'Konsistensi pemakaian adalah kunci akurasi pengukuran dosis',
+    // tips: 'Konsistensi pemakaian adalah kunci akurasi pengukuran dosis',
     image: '⚕️'
   },
   {
     id: 4,
-    title: 'Penyimpanan',
-    description: 'Simpan TLD dengan benar saat tidak digunakan',
+    title: 'Penyimpanan dan Pemeliharaan',
+    // description: 'Simpan TLD dengan benar saat tidak digunakan',
     details: [
-      'Simpan di tempat yang disediakan (TLD storage)',
-      'Jauhkan dari area dengan radiasi background tinggi',
-      'Hindari paparan suhu ekstrem (panas/dingin)',
-      'Jangan simpan bersama dengan sumber radioaktif'
+      'Lepaskan TLD mata setelah tindakan selesai',
+      'Simpan kembali di tempat penyimpanan TLD mata secara rapi',
+      'Lakukan pengumpulan dan pembacaan TLD mata secara berkala',
     ],
-    tips: 'Penyimpanan yang tepat mencegah pembacaan dosis palsu',
+    // tips: 'Penyimpanan yang tepat mencegah pembacaan dosis palsu',
     image: '📦'
-  },
-  {
-    id: 5,
-    title: 'Pengembalian & Pembacaan',
-    description: 'Kembalikan TLD sesuai jadwal untuk pembacaan',
-    details: [
-      'Kembalikan TLD sesuai periode pemantauan (biasanya 1-3 bulan)',
-      'Serahkan ke petugas proteksi radiasi',
-      'Tunggu hasil pembacaan dosis',
-      'Review hasil dan dokumentasikan dalam catatan dosis personal'
-    ],
-    tips: 'Jangan lupa untuk mengambil TLD pengganti setelah pengembalian',
-    image: '📊'
   }
 ];
 
-const warnings = [
-  'Jangan meminjamkan TLD kepada orang lain',
-  'Jangan membawa TLD saat menjalani pemeriksaan radiologi sebagai pasien',
-  'Laporkan segera jika TLD hilang atau rusak',
-  'Jangan mencoba membuka atau memodifikasi TLD'
-];
+// const warnings = [
+//   'Jangan meminjamkan TLD kepada orang lain',
+//   'Jangan membawa TLD saat menjalani pemeriksaan radiologi sebagai pasien',
+//   'Laporkan segera jika TLD hilang atau rusak',
+//   'Jangan mencoba membuka atau memodifikasi TLD'
+// ];
 
 export default function CaraPenggunaan() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
@@ -225,11 +208,11 @@ export default function CaraPenggunaan() {
                     </ul>
 
                     {/* Tip Box */}
-                    <div className="bg-gradient-to-r from-green-50 to-cyan-50 border-l-4 border-green-500 p-4 rounded-r-xl">
+                    {/* <div className="bg-gradient-to-r from-green-50 to-cyan-50 border-l-4 border-green-500 p-4 rounded-r-xl">
                       <p className="text-sm text-green-800">
                         <strong>💡 Tips:</strong> {steps[currentStep].tips}
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </motion.div>
@@ -285,7 +268,7 @@ export default function CaraPenggunaan() {
         </AnimatedSection>
 
         {/* Warning Section */}
-        <AnimatedSection delay={0.4} className="mt-12">
+        {/* <AnimatedSection delay={0.4} className="mt-12">
           <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
             <div className="flex items-center space-x-3 mb-6">
               <div className="p-3 bg-red-100 rounded-xl">
@@ -311,7 +294,7 @@ export default function CaraPenggunaan() {
               ))}
             </div>
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ const tldContent = [
     icon: HelpCircle,
     title: 'Pengertian TLD Mata',
     color: 'blue',
-    content: `TLD (Thermoluminescent Dosimeter) Mata adalah alat pengukur dosis radiasi yang dirancang khusus untuk memantau paparan radiasi pada lensa mata. Berbentuk compact dan ringan, dipasang di area dekat mata untuk memberikan pengukuran dosis yang akurat.`,
+    content: `TLD (Thermoluminescent Dosimeter) Mata adalah alat pengukur dosis radiasi yang bekerja berdasarkan prinsip thermoluminiscence. Saat dipanaskan, elektron dilepaskan dan memancarkan cahaya (luminesensi) yang intensitasnya sebanding dengan dosis radiasi yang diterima pekerja. TLD mata adalah komponen penting dalam sistem pemantauan dosis personal yang dirancang khusus untuk memantau paparan radiasi pada lensa mata.`,
     features: [
       'Menggunakan kristal thermoluminescent (LiF:Mg,Ti atau LiF:Mg,Cu,P)',
       'Mampu mengukur dosis dari 0.01 mSv hingga 10 Sv',
@@ -98,31 +98,31 @@ export default function PeranTLDSection() {
           </p>
         </AnimatedSection>
 
-        {/* TLD Visual */}
+        {/* TLD Visual
         <AnimatedSection className="mb-16" delay={0.2}>
           <div className="glass-card p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* TLD Illustration */}
+              {/* TLD Illustration }
               <motion.div
                 className="relative"
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl p-8 relative overflow-hidden">
-                  {/* Simplified TLD representation */}
+                  {/* Simplified TLD representation }
                   <div className="flex justify-center items-center">
                     <motion.div
                       className="relative"
                       animate={{ y: [0, -5, 0] }}
                       transition={{ duration: 3, repeat: Infinity }}
                     >
-                      {/* TLD Badge representation */}
+                      {/* TLD Badge representation }
                       <div className="w-32 h-20 bg-white rounded-xl shadow-lg flex items-center justify-center relative">
                         <div className="absolute inset-2 border-2 border-dashed border-cyan-300 rounded-lg" />
                         <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-pulse" />
                         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gray-300 rounded-full" />
                       </div>
                       
-                      {/* Radiation waves */}
+                      {/* Radiation waves }
                       {[1, 2, 3].map((i) => (
                         <motion.div
                           key={i}
@@ -135,7 +135,7 @@ export default function PeranTLDSection() {
                     </motion.div>
                   </div>
 
-                  {/* Labels */}
+                  {/* Labels }
                   <div className="absolute bottom-4 left-4 right-4 flex justify-between text-xs text-cyan-700">
                     <span>Kristal TLD</span>
                     <span>Deteksi Radiasi</span>
@@ -143,7 +143,7 @@ export default function PeranTLDSection() {
                 </div>
               </motion.div>
 
-              {/* Quick Info */}
+              {/* Quick Info }
               <div className="space-y-6">
                 <h3 className="text-2xl font-display font-bold text-gray-900">
                   Bagaimana TLD Bekerja?
@@ -173,7 +173,7 @@ export default function PeranTLDSection() {
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
 
         {/* Accordion Content */}
         <div className="space-y-4">

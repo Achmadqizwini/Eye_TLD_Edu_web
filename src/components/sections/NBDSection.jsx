@@ -3,16 +3,21 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../common/AnimatedSection';
-import { Info, ChevronRight, AlertCircle, CheckCircle, Target } from 'lucide-react';
+import { Info, AlertTriangle, ChevronRight, AlertCircle, CheckCircle, Target } from 'lucide-react';
 
 const nbdData = {
   pengertian: {
     title: 'Pengertian NBD',
     icon: Info,
-    content: `NBD (Nilai Batas Dosis) adalah batas dosis radiasi yang ditetapkan oleh badan regulasi untuk melindungi pekerja radiasi dari efek berbahaya radiasi pengion. NBD bukan ambang batas aman, melainkan batas risiko yang dapat diterima.`,
+    content: `NBD (Nilai Batas Dosis) adalah dosis terbesar yang diizinkan
+            oleh BAPETEN yang dapat diterima oleh Pekerja
+            Radiasi dan anggota masyarakat dalam jangka waktu
+            tertentu tanpa menimbulkan efek genetik dan somatik
+            yang berarti akibat pemanfaatan tenaga nuklir. NBD bukanlah ambang batas aman, melainkan batas risiko yang dapat diterima.
+            `,
     keyPoints: [
       'Ditetapkan berdasarkan rekomendasi ICRP',
-      'Diatur dalam Peraturan Pemerintah RI',
+      'Diatur dalam Peraturan BAPETEN',
       'Berlaku untuk pekerja radiasi dan masyarakat umum',
       'Ditinjau dan diperbarui secara berkala'
     ]
@@ -20,7 +25,7 @@ const nbdData = {
   batas: {
     title: 'Batas NBD',
     icon: Target,
-    content: 'Berikut adalah nilai batas dosis untuk berbagai organ dan kelompok berdasarkan regulasi terkini:',
+    content: 'Berikut adalah nilai batas dosis untuk berbagai organ dan kelompok berdasarkan PERKA BAPETEN No. 4 Tahun 2020',
     limits: [
       { organ: 'Seluruh Tubuh (Efektif)', pekerja: '20 mSv/tahun*', masyarakat: '1 mSv/tahun' },
       { organ: 'Lensa Mata', pekerja: '20 mSv/tahun*', masyarakat: '15 mSv/tahun' },
@@ -240,6 +245,27 @@ export default function NBDSection() {
             )}
           </motion.div>
         </AnimatePresence>
+        {/* Warning Box */}
+        <AnimatedSection className="mt-12" delay={0.5}>
+          <motion.div
+            className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-r-2xl"
+            whileHover={{ x: 5 }}
+          >
+            <div className="flex items-start space-x-4">
+              <AlertTriangle className="w-8 h-8 text-red-500 flex-shrink-0" />
+              <div>
+                <h4 className="text-lg font-bold text-red-800 mb-2">
+                  Perhatian Penting!
+                </h4>
+                <p className="text-red-700">
+                  Batas dosis lensa mata telah diperketat oleh ICRP dari 150 mSv/tahun menjadi 
+                  <strong> 20 mSv/tahun</strong> (rata-rata 5 tahun) untuk mencegah katarak radiasi. 
+                  Pemantauan dosis mata sangat penting bagi pekerja radiasi.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatedSection>
       </div>
     </section>
   );

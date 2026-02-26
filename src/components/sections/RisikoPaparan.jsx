@@ -10,7 +10,7 @@ const efekRadiasi = [
     icon: Zap,
     color: 'from-orange-500 to-red-500',
     description: 'Efek yang terjadi secara acak, tidak ada nilai ambang dosis. Peluang terjadinya meningkat seiring dosis.',
-    examples: ['Katarak radiasi', 'Kerusakan DNA sel mata', 'Risiko kanker jangka panjang'],
+    examples: ['Kerusakan DNA sel mata', 'Risiko kanker jangka panjang'],
     characteristics: [
       'Tidak ada ambang batas dosis',
       'Probabilitas meningkat dengan dosis',
@@ -200,7 +200,7 @@ export default function RisikoPaparan() {
         </div>
 
         {/* Warning Box */}
-        <AnimatedSection className="mt-12" delay={0.5}>
+        {/* <AnimatedSection className="mt-12" delay={0.5}>
           <motion.div
             className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-r-2xl"
             whileHover={{ x: 5 }}
@@ -219,7 +219,7 @@ export default function RisikoPaparan() {
               </div>
             </div>
           </motion.div>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
     </section>
   );
