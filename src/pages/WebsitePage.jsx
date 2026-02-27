@@ -17,7 +17,7 @@ import CTASection from '../components/sections/CTASection';
 
 export default function WebsitePage() {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 1500);
@@ -26,9 +26,9 @@ export default function WebsitePage() {
   return (
     <>
       <AnimatePresence>
-        {isLoading ? (
+        {/* {isLoading ? (
           <LoadingScreen key="loading" />
-        ) : (
+        ) : ( */}
           <motion.div
             key="main"
             initial={{ opacity: 0 }}
@@ -62,7 +62,7 @@ export default function WebsitePage() {
             </main>
             <Footer />
           </motion.div>
-        )}
+        {/* )} */}
       </AnimatePresence>
     </>
   );
