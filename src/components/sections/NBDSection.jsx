@@ -25,14 +25,14 @@ const nbdData = {
   batas: {
     title: 'Batas NBD',
     icon: Target,
-    content: 'Berikut adalah nilai batas dosis untuk berbagai organ dan kelompok berdasarkan PERKA BAPETEN No. 4 Tahun 2020',
+    content: 'Berikut adalah nilai batas dosis untuk berbagai organ dan kelompok berdasarkan PERKA BAPETEN No. 4 Tahun 2013',
     limits: [
-      { organ: 'Seluruh Tubuh (Efektif)', pekerja: '20 mSv/tahun*', masyarakat: '1 mSv/tahun' },
-      { organ: 'Lensa Mata', pekerja: '20 mSv/tahun*', masyarakat: '15 mSv/tahun' },
-      { organ: 'Kulit', pekerja: '500 mSv/tahun', masyarakat: '50 mSv/tahun' },
-      { organ: 'Tangan & Kaki', pekerja: '500 mSv/tahun', masyarakat: '-' },
+      { organ: 'Dosis Efektif*', pekerja: '20 mSv/tahun*', masyarakat: '1 mSv/tahun' },
+      { organ: 'Doses Ekivalen Lensa Mata*', pekerja: '20 mSv/tahun*', masyarakat: '15 mSv/tahun' },
+      { organ: 'Dosis Ekivalen Kulit', pekerja: '500 mSv/tahun', masyarakat: '50 mSv/tahun' },
+      { organ: 'Dosis Ekivalen Tangan & Kaki', pekerja: '500 mSv/tahun', masyarakat: '-' },
     ],
-    note: '*Rata-rata selama 5 tahun berturut-turut, tidak boleh melebihi 50 mSv dalam 1 tahun tertentu'
+    note: '*Catatan: Dosis rata-rata sebesar 20mSv/tahun dalam periode 5 tahun berturut-turut, dan 50 mSv dalam 1 tahun tertentu. Total akumulasi dosis dalam 5 tahun tidak boleh melebihi 100mSv'
   },
   pentingnya: {
     title: 'Pentingnya Pemantauan Dosis',
@@ -206,6 +206,29 @@ export default function NBDSection() {
                     <strong>Catatan:</strong> {nbdData.batas.note}
                   </p>
                 </div>
+                {/* <AnimatedSection className="mt-12" delay={0.5}> */}
+                <motion.div
+                  className="mt-6 bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-r-2xl"
+                  whileHover={{ x: 5 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <AlertTriangle className="w-8 h-8 text-red-500 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-lg font-bold text-red-800 mb-2">
+                        Perhatian Penting!
+                      </h4>
+                      <p className="text-red-700">
+                        Batas dosis lensa mata telah diperketat oleh ICRP dari 150 mSv/tahun menjadi 
+                        <strong> 20 mSv/tahun</strong> (rata-rata 5 tahun) untuk mencegah katarak radiasi. 
+                        Pemantauan dosis mata sangat penting bagi pekerja radiasi.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+                {/* </AnimatedSection> */}
               </div>
             )}
 
@@ -246,7 +269,7 @@ export default function NBDSection() {
           </motion.div>
         </AnimatePresence>
         {/* Warning Box */}
-        <AnimatedSection className="mt-12" delay={0.5}>
+        {/* <AnimatedSection className="mt-12" delay={0.5}>
           <motion.div
             className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-r-2xl"
             whileHover={{ x: 5 }}
@@ -265,7 +288,7 @@ export default function NBDSection() {
               </div>
             </div>
           </motion.div>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
     </section>
   );
