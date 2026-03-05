@@ -107,24 +107,19 @@ export default function CTASection() {
               <span>Bagikan Materi</span>
             </motion.button>
 
-            <motion.button
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/materi-proteksi-radiasi.pdf'; // path to your PDF in /public
-                link.download = 'Materi-Proteksi-Radiasi-Lensa-Mata.pdf';
-                link.click();
-              }}
-              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-xl flex items-center justify-center space-x-2"
+            {/* <motion.button
+              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1mh86VquPih2jnP7OXUeG6NkXtMOlhfHa', '_blank')}
+              className="w-full sm:w-48 px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-xl flex items-center justify-center space-x-2"
               whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.6)' }}
               whileTap={{ scale: 0.95 }}
             >
               <Download className="w-5 h-5" />
               <span>Unduh PDF</span>
-            </motion.button>
+            </motion.button> */}
           </motion.div>
 
           {/* QR Code Display */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -143,7 +138,7 @@ export default function CTASection() {
               Scan QR code untuk mengakses materi
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
         </AnimatedSection>
 
         {/* Contact Info */}

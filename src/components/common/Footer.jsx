@@ -54,10 +54,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4">Referensi</h4>
             <ul className="space-y-2 text-sm">
-              <li>ICRP Publication 118</li>
+              {/* <li>ICRP Publication 118</li> */}
               <li>Peraturan BAPETEN</li>
               <li>Pedoman K3 Radiasi</li>
-              <li>Standar Internasional IAEA</li>
+              {/* <li>Standar Internasional IAEA</li> */}
             </ul>
           </div>
         </div>
