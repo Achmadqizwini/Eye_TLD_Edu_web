@@ -108,6 +108,12 @@ export default function CTASection() {
             </motion.button>
 
             <motion.button
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/materi-proteksi-radiasi.pdf'; // path to your PDF in /public
+                link.download = 'Materi-Proteksi-Radiasi-Lensa-Mata.pdf';
+                link.click();
+              }}
               className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-xl flex items-center justify-center space-x-2"
               whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.6)' }}
               whileTap={{ scale: 0.95 }}
@@ -118,27 +124,30 @@ export default function CTASection() {
           </motion.div>
 
           {/* QR Code Display */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 inline-block"
-          >
-            <div className="bg-white p-4 rounded-2xl mb-4">
-              {/* QR Code Placeholder */}
-              <div className="w-40 h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
-                <QrCode className="w-24 h-24 text-gray-400" />
-              </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="flex flex-col items-center"
+        >
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 flex flex-col items-center">
+            <div className="bg-white p-3 rounded-2xl mb-4">
+              <img
+                src="/qr-code.png"
+                alt="QR Code Materi"
+                className="w-40 h-40 object-contain block"
+              />
             </div>
-            <p className="text-sm text-blue-200">
+            <p className="text-sm text-blue-200 text-center">
               Scan QR code untuk mengakses materi
             </p>
-          </motion.div>
+          </div>
+        </motion.div>
         </AnimatedSection>
 
         {/* Contact Info */}
-        <AnimatedSection delay={0.5} className="mt-16">
+        {/* <AnimatedSection delay={0.5} className="mt-16">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
             <h3 className="text-xl font-bold text-white text-center mb-6">
               Hubungi Petugas Proteksi Radiasi
@@ -162,7 +171,7 @@ export default function CTASection() {
               </motion.a>
             </div>
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
     </section>
   );
